@@ -1,0 +1,19 @@
+module mux81(a,b,c,d,e,f,g,h,sel1,sel2,sel3,out);
+	input a,b,c,d,e,f,g,h;
+	input wire sel1,sel2,sel3;
+	output reg out;
+	always@ (a or b or c or d or e or f or g or h or sel1 or sel2 or sel3 ) 
+		begin
+		case(sel1|sel2|sel3)
+			3'b000 : out <= a;
+            3'b001 : out <= b;
+            3'b010 : out <= c;
+            3'b011 : out <= d;	
+			3'b100 : out <= e;
+			3'b101 : out <= f;
+			3'b110 : out <= g;
+			3'b111 : out <= h;
+			
+		endcase
+		end
+		endmodule
